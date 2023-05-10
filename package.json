@@ -1,0 +1,9 @@
+{
+  "name": "@designliquido/delegua-http",
+  "version": "0.0.0",
+  "description": "Biblioteca para acessos HTTP em Delégua",
+  "author": "Leonel Sanches da Silva",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
