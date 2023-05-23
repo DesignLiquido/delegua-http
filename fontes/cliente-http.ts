@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
+import { RespostaHttp } from "./resposta-http";
 
 export class ClienteHttp {
     instanciaAxios: AxiosInstance;
@@ -11,29 +12,53 @@ export class ClienteHttp {
         });
     }
 
-    async requisicaoGet(sufixoUrl: string): Promise<AxiosResponse<any, any>> {
-        return await this.instanciaAxios.get(
+    async requisicaoGet(sufixoUrl: string): Promise<RespostaHttp> {
+        const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.get(
             sufixoUrl
+        );
+
+        return new RespostaHttp(
+            respostaAxios.status, 
+            respostaAxios.statusText,
+            respostaAxios.data
         );
     }
 
-    async requisicaoPost(sufixoUrl: string, corpo: any): Promise<AxiosResponse<any, any>> {
-        return await this.instanciaAxios.post(
+    async requisicaoPost(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+        const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.post(
             sufixoUrl,
             corpo
         );
-    }
 
-    async requisicaoPut(sufixoUrl: string, corpo: any): Promise<AxiosResponse<any, any>> {
-        return await this.instanciaAxios.put(
-            sufixoUrl,
-            corpo
+        return new RespostaHttp(
+            respostaAxios.status, 
+            respostaAxios.statusText,
+            respostaAxios.data
         );
     }
 
-    async requisicaoDelete(sufixoUrl: string): Promise<AxiosResponse<any, any>> {
-        return await this.instanciaAxios.delete(
+    async requisicaoPut(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+        const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.put(
+            sufixoUrl,
+            corpo
+        );
+
+        return new RespostaHttp(
+            respostaAxios.status, 
+            respostaAxios.statusText,
+            respostaAxios.data
+        );
+    }
+
+    async requisicaoDelete(sufixoUrl: string): Promise<RespostaHttp> {
+        const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.delete(
             sufixoUrl
+        );
+
+        return new RespostaHttp(
+            respostaAxios.status, 
+            respostaAxios.statusText,
+            respostaAxios.data
         );
     }
 }
