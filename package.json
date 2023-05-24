@@ -2,8 +2,19 @@
   "name": "@designliquido/delegua-http",
   "version": "0.0.0",
   "description": "Biblioteca para acessos HTTP em Delégua",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DesignLiquido/delegua-http.git"
+  },
+  "scripts": {
+    "empacotar": "yarn rimraf ./dist && tsc && copyfiles -V ./README.md ./dist && copyfiles -V ./LICENSE ./dist && copyfiles -V ./package.json ./dist",
+    "publicar-npm": "npm publish --access public"
+  },
   "author": "Leonel Sanches da Silva",
   "dependencies": {
     "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1"
   }
 }
