@@ -61,4 +61,17 @@ export class ClienteHttp {
             respostaAxios.data
         );
     }
+
+    async requisicaoPatch(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+        const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.patch(
+            sufixoUrl,
+            corpo
+        );
+
+        return new RespostaHttp(
+            respostaAxios.status, 
+            respostaAxios.statusText,
+            respostaAxios.data
+        );
+    }
 }

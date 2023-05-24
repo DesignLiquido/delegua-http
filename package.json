@@ -7,7 +7,7 @@
     "url": "git+https://github.com/DesignLiquido/delegua-http.git"
   },
   "scripts": {
-    "empacotar": "yarn rimraf ./dist && tsc && copyfiles -V ./README.md ./dist && copyfiles -V ./LICENSE ./dist && copyfiles -V ./package.json ./dist",
+    "empacotar": "yarn rimraf ./dist && tsc && copyfiles -V ./README.md ./dist && copyfiles -V ./LICENSE ./dist",
     "publicar-npm": "npm publish --access public"
   },
   "author": "Leonel Sanches da Silva",
