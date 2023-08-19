@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 import { RespostaHttp } from "./resposta-http";
 
 export class ClienteHttp {
@@ -12,9 +12,14 @@ export class ClienteHttp {
         });
     }
 
-    async requisicaoGet(sufixoUrl: string): Promise<RespostaHttp> {
+    async requisicaoGet(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.get(
-            sufixoUrl
+            sufixoUrl,
+            {
+                headers: { 
+                    ...cabecalhos
+                }
+            }
         );
 
         return new RespostaHttp(
@@ -24,10 +29,15 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPost(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+    async requisicaoPost(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.post(
             sufixoUrl,
-            corpo
+            corpo,
+            {
+                headers: { 
+                    ...cabecalhos
+                }
+            }
         );
 
         return new RespostaHttp(
@@ -37,10 +47,15 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPut(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+    async requisicaoPut(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.put(
             sufixoUrl,
-            corpo
+            corpo,
+            {
+                headers: { 
+                    ...cabecalhos
+                }
+            }
         );
 
         return new RespostaHttp(
@@ -50,9 +65,14 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoDelete(sufixoUrl: string): Promise<RespostaHttp> {
+    async requisicaoDelete(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.delete(
-            sufixoUrl
+            sufixoUrl,
+            {
+                headers: { 
+                    ...cabecalhos
+                }
+            }
         );
 
         return new RespostaHttp(
@@ -62,10 +82,15 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPatch(sufixoUrl: string, corpo: any): Promise<RespostaHttp> {
+    async requisicaoPatch(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.patch(
             sufixoUrl,
-            corpo
+            corpo,
+            {
+                headers: { 
+                    ...cabecalhos
+                }
+            }
         );
 
         return new RespostaHttp(
