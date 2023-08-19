@@ -1,6 +1,6 @@
 {
   "name": "@designliquido/delegua-http",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Biblioteca para acessos HTTP em Delégua",
   "repository": {
     "type": "git",
