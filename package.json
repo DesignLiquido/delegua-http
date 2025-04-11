@@ -12,9 +12,9 @@
   },
   "author": "Leonel Sanches da Silva",
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "^1.8.4"
   },
   "devDependencies": {
-    "rimraf": "^5.0.1"
+    "rimraf": "^6.0.1"
   }
 }
