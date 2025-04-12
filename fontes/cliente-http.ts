@@ -6,7 +6,7 @@ export class ClienteHttp {
 
     constructor(urlBase: string = "", tempoMaximo: number = 5000, cabecalhos: any = {}) {
         this.instanciaAxios = axios.create({
-            baseURL: urlBase,
+            baseURL: `${urlBase}`,
             timeout: tempoMaximo,
             headers: cabecalhos
         });
@@ -14,7 +14,7 @@ export class ClienteHttp {
 
     async requisicaoGet(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.get(
-            sufixoUrl,
+            `${sufixoUrl}`,
             {
                 headers: { 
                     ...cabecalhos
@@ -31,7 +31,7 @@ export class ClienteHttp {
 
     async requisicaoPost(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.post(
-            sufixoUrl,
+            `${sufixoUrl}`,
             corpo,
             {
                 headers: { 
@@ -49,7 +49,7 @@ export class ClienteHttp {
 
     async requisicaoPut(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.put(
-            sufixoUrl,
+            `${sufixoUrl}`,
             corpo,
             {
                 headers: { 
@@ -67,7 +67,7 @@ export class ClienteHttp {
 
     async requisicaoDelete(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.delete(
-            sufixoUrl,
+            `${sufixoUrl}`,
             {
                 headers: { 
                     ...cabecalhos
@@ -84,7 +84,7 @@ export class ClienteHttp {
 
     async requisicaoPatch(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.patch(
-            sufixoUrl,
+            `${sufixoUrl}`,
             corpo,
             {
                 headers: { 
