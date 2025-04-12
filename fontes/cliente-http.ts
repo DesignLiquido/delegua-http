@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 import { RespostaHttp } from "./resposta-http";
+import { ArgumentoInterface } from "./interfaces";
 
 export class ClienteHttp {
     instanciaAxios: AxiosInstance;
@@ -12,9 +13,10 @@ export class ClienteHttp {
         });
     }
 
-    async requisicaoGet(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+    async requisicaoGet(sufixoUrl: string | ArgumentoInterface, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+        const sufixoUrlResolvido = sufixoUrl.hasOwnProperty("valor") ? (sufixoUrl as ArgumentoInterface).valor : sufixoUrl;
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.get(
-            `${sufixoUrl}`,
+            `${sufixoUrlResolvido}`,
             {
                 headers: { 
                     ...cabecalhos
@@ -29,9 +31,10 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPost(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+    async requisicaoPost(sufixoUrl: string | ArgumentoInterface, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+        const sufixoUrlResolvido = sufixoUrl.hasOwnProperty("valor") ? (sufixoUrl as ArgumentoInterface).valor : sufixoUrl;
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.post(
-            `${sufixoUrl}`,
+            `${sufixoUrlResolvido}`,
             corpo,
             {
                 headers: { 
@@ -47,9 +50,10 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPut(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+    async requisicaoPut(sufixoUrl: string | ArgumentoInterface, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+        const sufixoUrlResolvido = sufixoUrl.hasOwnProperty("valor") ? (sufixoUrl as ArgumentoInterface).valor : sufixoUrl;
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.put(
-            `${sufixoUrl}`,
+            `${sufixoUrlResolvido}`,
             corpo,
             {
                 headers: { 
@@ -65,9 +69,10 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoDelete(sufixoUrl: string, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+    async requisicaoDelete(sufixoUrl: string | ArgumentoInterface, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+        const sufixoUrlResolvido = sufixoUrl.hasOwnProperty("valor") ? (sufixoUrl as ArgumentoInterface).valor : sufixoUrl;
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.delete(
-            `${sufixoUrl}`,
+            `${sufixoUrlResolvido}`,
             {
                 headers: { 
                     ...cabecalhos
@@ -82,9 +87,10 @@ export class ClienteHttp {
         );
     }
 
-    async requisicaoPatch(sufixoUrl: string, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+    async requisicaoPatch(sufixoUrl: string | ArgumentoInterface, corpo: any, cabecalhos?: RawAxiosRequestHeaders): Promise<RespostaHttp> {
+        const sufixoUrlResolvido = sufixoUrl.hasOwnProperty("valor") ? (sufixoUrl as ArgumentoInterface).valor : sufixoUrl;
         const respostaAxios: AxiosResponse<any, any> = await this.instanciaAxios.patch(
-            `${sufixoUrl}`,
+            `${sufixoUrlResolvido}`,
             corpo,
             {
                 headers: { 
