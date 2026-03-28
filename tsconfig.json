@@ -2,12 +2,17 @@
     "compilerOptions": {
         "outDir": "dist",
         "module": "commonjs",
-        "target": "es2017",
+        "target": "ES2020",
+        "lib": ["ES2020"],
         "rootDir": ".",
-        "allowJs": true,
         "sourceMap": true,
         "declaration": true,
-        "esModuleInterop": true
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true
     },
-    "exclude": ["babel.config.js", "dist/**/*"]
+    "exclude": ["dist", "node_modules", "testes"]
 }

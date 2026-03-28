@@ -2,13 +2,16 @@
   "name": "@designliquido/delegua-http",
   "version": "0.1.2",
   "description": "Biblioteca para acessos HTTP em Delégua",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DesignLiquido/delegua-http.git"
   },
   "scripts": {
-    "empacotar": "yarn rimraf ./dist && tsc && yarn copyfiles -V ./README.md ./dist && yarn copyfiles -V ./LICENSE ./dist",
-    "publicar-npm": "npm publish --access public"
+    "empacotar": "yarn rimraf ./dist && tsc && yarn copyfiles -V ./README.md ./dist && yarn copyfiles -V ./LICENSE ./dist && yarn copyfiles -V ./package.json ./dist",
+    "publicar-npm": "npm publish ./dist --access public",
+    "testes-unitarios": "jest --passWithNoTests --coverage"
   },
   "author": "Leonel Sanches da Silva",
   "dependencies": {
@@ -16,10 +19,11 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.0",
     "copyfiles": "^2.4.1",
     "jest": "^29.7.0",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.3.1",
+    "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
